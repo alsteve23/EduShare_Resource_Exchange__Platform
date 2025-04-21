@@ -4,31 +4,19 @@
 #include<filesystem>
 #include "school.h"
 
-School::School(std::string id, std::string n)
+School::School(int id, std::string n)
         : schoolID(id), name(n){};
 School::School(){
-        schoolID="";
+        schoolID=0;
         name="";
     };
-std::string School::getID(){    
+int School::getID()const {    
         return schoolID;
     };
-std::string School::getName(){
+std::string School::getName() const {
         return name;
     };
-void School::saveInFile(std::string& id){
-        std::string filePath="Schools/" +id+ ".txt";
-        std::ofstream file(filePath);       
-        file<<schoolID<<'\n';
-        file<<name<<'\n';
-        file.close();      
-    };
-bool School::isSchoolIDExists(std::string id){
-        std::string path= "Schools/"+id+".txt";
-        if(std::filesystem::exists(path)){
-            return true;
-        }else{
-            return false;
-        };
-    };
+    
+    
+
     

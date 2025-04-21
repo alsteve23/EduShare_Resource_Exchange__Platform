@@ -5,13 +5,13 @@
 #include "school.h"
 #include "career.h"
 
-Career::Career(std::string id, std::string n)
+Career::Career(int id, std::string n)
         : careerID(id), name(n){};
 Career::Career(){
-        careerID="";
+        careerID=0;
         name="";
     };
-std::string Career::getID(){    
+int Career::getID(){    
         return careerID;
     };
 std::string Career::getName(){

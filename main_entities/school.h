@@ -5,12 +5,12 @@
 
 class School{
     private:
-    std::string schoolID, name;
+    std::string name;
+    int schoolID;
     public:
-    School(std::string id, std::string n);
+    School(int id, const std::string n);
     School();
-    std::string getID();
-    std::string getName();
-    void saveInFile(std::string& id);
-    bool isSchoolIDExists(std::string id);
+    int getID() const;
+    std::string getName() const;
+    School(int id) : schoolID(id) {}
 };

@@ -6,12 +6,14 @@
 
 class Career{
     private:
-    std::string careerID, name;
+    std::string name;
+    School* school;
+    int careerID;
     public:
-    Career(std::string id, std::string n);
+    Career(int id, std::string n);
     Career();
-    std::string getID();
+    int getID();
     std::string getName();
-    void saveInFile(std::string& id);
-    bool isCareerIDExists(std::string id);
+    Career(School* f) : school(f) {}
+    Career(int id) : careerID(id) {}
 };
