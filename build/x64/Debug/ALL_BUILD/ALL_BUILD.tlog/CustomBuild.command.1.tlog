@@ -1,0 +1,10 @@
+^C:\USERS\USUARIO\ONEDRIVE\DOCUMENTOS\CURSOS_STEVE_TENE\5. QUINTO_SEMESTRE\ADVANCE PROGRAMMING\MY_FIRST_BIG_PROJECT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\GNU Octave\Octave-8.2.0\mingw64\bin\cmake.exe" "-SC:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project" "-BC:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build" --check-stamp-file "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
