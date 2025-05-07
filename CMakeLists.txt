@@ -5,6 +5,8 @@ project(My_First_Big_Project)
 # Establecer la versión del estándar de C++
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+include_directories("C:/msys64/mingw64/include")
 # Agregar el ejecutable principal
 add_executable(ResourceSystem
 mainEntities/school.cpp
@@ -13,3 +15,4 @@ mainEntities/subject.cpp
 mainEntities/resource.cpp
 systemFunctions/ResourceSystem.cpp
 )
+target_link_libraries(ResourceSystem PRIVATE "C:/msys64/mingw64/lib/libsqlite3.a")
