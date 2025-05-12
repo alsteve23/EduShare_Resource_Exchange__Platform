@@ -1,18 +1,28 @@
-# Mínima versión requerida de CMake
 cmake_minimum_required(VERSION 3.10)
+
 # Nombre del proyecto
 project(My_First_Big_Project)
-# Establecer la versión del estándar de C++
-set(CMAKE_CXX_STANDARD 20)
+
+# Estándar de C++
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-include_directories("C:/msys64/mingw64/include")
-# Agregar el ejecutable principal
-add_executable(ResourceSystem
-mainEntities/school.cpp
-mainEntities/career.cpp
-mainEntities/subject.cpp
-mainEntities/resource.cpp
-systemFunctions/ResourceSystem.cpp
+# Incluir directorios de cabeceras
+include_directories(
+    libraries
+    mainEntities
+    systemFunctions
 )
-target_link_libraries(ResourceSystem PRIVATE "C:/msys64/mingw64/lib/libsqlite3.a")
+
+# Archivos fuente
+set(SOURCES
+    libraries/sqlite3.c
+    mainEntities/career.cpp
+    mainEntities/resource.cpp
+    mainEntities/school.cpp
+    mainEntities/subject.cpp
+    systemFunctions/ResourceSystem.cpp
+)
+
+# Crear el ejecutable
+add_executable(My_First_Big_Project ${SOURCES})

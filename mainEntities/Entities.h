@@ -3,5 +3,4 @@
 #include "career.h"
 #include "subject.h"
 #include "resource.h"
-#include "user.h"
 

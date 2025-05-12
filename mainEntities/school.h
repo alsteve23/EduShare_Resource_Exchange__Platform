@@ -3,6 +3,10 @@
 #include<sstream>
 #include<fstream>
 #include<filesystem>
+#include<sqlite3.h>
+#include <string>
+#include <vector>
+using namespace std;
 
 class School{
     private:
@@ -13,5 +17,7 @@ class School{
     School();
     int getID() const;
     std::string getName() const;
+    static std::vector<School> listAll(sqlite3* db);
+    void printAll(sqlite3* db); 
     
 };

@@ -7,15 +7,26 @@
 class Resource{
     private:
     std::string name;
-    School* school;
-    Career* career;
-    Subject* subject;
+    int schoolID;
+    int careerID;
+    int subjectID;
     int resourceID;
-    std::string Type;
+    string path;
+    std::vector<unsigned char> fileData;
     public:
-    Resource(int id, std::string n,School* f, Career* c, Subject* s );
+    Resource(int id, std::string n,int f, int c,int s,string p, std::vector<unsigned char> fileData);
     Resource();
+    Resource(int id, string name);
+    Resource(int id);
     int getID() const;
     std::string getName() const;
-    std::string getType() const;
+    int getSchool() const;
+    int getCareer() const;
+    int getSubject() const;
+    string getPath() const;
+    vector<unsigned char> getFileData();
+    static std::vector<Resource> listBySubject(sqlite3* db,int SubjectID);
+    void PrintResourcesBySubject(sqlite3* db);
+    bool UploadResource(sqlite3* db);
+    bool downloadResource(sqlite3* db, int rID, const string& outputPath);
 };
