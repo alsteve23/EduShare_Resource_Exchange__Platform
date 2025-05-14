@@ -11,19 +11,16 @@ using namespace std;
 /*
 here i am going to implement the main functions of the platform
 */
-//List all the Schoolss in the Database
+//reads the files
 vector<unsigned char> readBinaryFile(const string& filePath){
     ifstream file(filePath, ios::binary | ios::ate);
     if(!file){
-        cout<<"no leyendo"<<endl;
         throw runtime_error("No se pudo abrir: " + filePath);
     }
-    cout<<"leyendo"<<endl;
     streamsize fileSize=file.tellg();
     if(fileSize<=0){
         cout<<"archivo vacio"<<endl;
     };
-    cout<<"tamano del archivo"<<fileSize<<endl;
     file.seekg(0,ios::beg);
     vector<unsigned char > buffer(fileSize);
     if (!file.read(reinterpret_cast<char*>(buffer.data()),fileSize)){
@@ -37,31 +34,37 @@ int main() {
     const char* path = "../Database/database.db";
     sqlite3* db;
     if (sqlite3_open(path, &db) != SQLITE_OK) {
-        std::cerr << "Database connection failed\n";
-        return 1;
+    cout << "No se pudo abrir la base de datos: " << sqlite3_errmsg(db) << endl;
+    return 1;
     }
-    // testing the reading functions
-    //School::listAll(db);
-    //School SchoolInstance;
-    //SchoolInstance.printAll(db);
-
-    //proving the uploadresource function
-    //string filePath="C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\arqui. de computadores\\ALU_Report_STFQ.pdf";
-    //string fileName="ALU_Report_STFQ.pdf";
-    //vector<unsigned char> fileData=readBinaryFile(filePath);
-    //Resource resource(1,fileName,1,1,1,filePath,fileData);
-    //vector<unsigned char> comprobador= resource.getFileData();
-    //for(size_t i=0;i<comprobador.size();++i){
-    //    cout<<comprobador[i]<<endl;
-    //}
-    //
-    //if(resource.UploadResource(db)){
-    //    cout<<"Se subió correctamente"<<endl;
-    //}
+    //subir un recurso
+    // string name= "Computer_Report STFQ.pdf";
+    // string filePath= "C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\arqui. de computadores\\Computer_Report STFQ.pdf";
+    // vector<unsigned char> file= readBinaryFile(filePath);
+    // Resource resource(name,5, 8,1, file);
+    // bool flag=resource.UploadResource(db);
+    // cout<<flag<<endl;
     
-    //Proband la función para descargar
-    string outputPath="C:\\Users\\Usuario\\OneDrive\\Escritorio\\xd";
-    Resource resource(7);
-    resource.downloadResource(db, resource.getID(), outputPath);
+    
+    //mostrar archivos filtrados
+    
+    vector<Resource> resources=Resource::fromSchool(db,1);
+    Resource::PrintResources(resources);
+   
+   
+   
+    //descargar el archivo
+
+    // string destinyPath= "C:\\Users\\Usuario\\OneDrive\\Escritorio\\xd";
+    // auto resource1= Resource::fromID(db,1);
+    // if(resource1.has_value()){
+    //     Resource resource2= resource1.value();
+    //     resource2.downloadResource(db,destinyPath);
+    //     cout<<"recurso encontrado"<<endl;
+    // }else{
+    //     cout<<"recurso no encontrado"<<endl;
+    // };
+    
+    sqlite3_close(db);
     return 0;
 }

@@ -13,6 +13,7 @@ class School{
     std::string name;
     int schoolID;
     public:
+    
     School(int id, const std::string n);
     School();
     int getID() const;
