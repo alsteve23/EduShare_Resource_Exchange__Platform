@@ -10,18 +10,23 @@ using namespace std;
 class Subject{
     private: 
     string name;
-    School* school;
-    Career* career;
     int subjectID;
+    int careerID,schoolID;
     public:
-    Subject(int id,string name,School* f, Career* c);
+    //constructors
+    Subject(int id,string name,int careerID, int schoolID);
     Subject();
     Subject(int id, string name);
+    //getters
     int getID() const;
     std::string getName() const;
-    School* getSchool() const;
-    Career* getCareer() const;
-    static std::vector<Subject> listByCareer(sqlite3* db,int CareerID);
-    void PrintSubjectsByCareer(sqlite3* db);
-    void PrintSubjectsBySchool(sqlite3* db);    
+    int getcareerID()const;
+    int getschoolID()const;
+    static std::vector<Subject>fromCareer(sqlite3* db, int careerID);
+    static std::vector<Subject> fromSchool(sqlite3* db,int schoolID);
+    static void PrintSubjects(std::vector<Subject>& subjects);  
+    //ADD and DELETE methods
+    bool addSubject(sqlite3* db);
+    bool deleteSubject(sqlite3* db);
+
 };

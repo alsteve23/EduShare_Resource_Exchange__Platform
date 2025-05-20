@@ -7,25 +7,30 @@
 #include <vector>
 using namespace std;
 
-Career::Career(int id, std::string n,School* f)
-        : careerID(id), name(n),school(f){};
+Career::Career(int id, std::string n,int f)
+        : careerID(id), name(n),schoolID(f){};
 Career::Career(){
         careerID=0;
         name="";
-        school=nullptr;
+        schoolID=0;
     };
 Career::Career(int id, string name)
-        : careerID(id), name(name), school(nullptr){};
+        : careerID(id), name(name), schoolID(0){};
+Career::Career(string name,int schoolID)
+        : careerID(0), name(name),schoolID(schoolID){};
+Career::Career(int id)
+        : careerID(id), name(""),schoolID(0){};
 int Career::getID()const{    
         return careerID;
     };
+
 std::string Career::getName()const{
         return name;
     };
-School* Career::getSchool()const{
-        return school;
+int Career::getSchoolID()const{
+        return schoolID;
     };
-vector<Career> Career::listBySchool(sqlite3* db,int SchoolID){
+vector<Career> Career::fromSchool(sqlite3* db,int SchoolID){
         vector<Career> careers;
         string sql="SELECT CareerID,CareerName FROM Careers WHERE SchoolID = ?;";
         sqlite3_stmt* stmt;
@@ -45,14 +50,50 @@ vector<Career> Career::listBySchool(sqlite3* db,int SchoolID){
         }
         sqlite3_finalize(stmt);
         return careers;
-    };
-void Career::PrintCareersBySchool(sqlite3* db) {
-    if (school == nullptr) {
-        cerr << "Error: El puntero 'school' es nulo. No se puede listar las carreras." << endl;
-        return;
+};
+
+void Career::PrintCareers(vector<Career>& careers) {
+    if(!careers.empty()){
+        for(const auto&career: careers){
+            cout<<career.getID()<<". "<<career.getName()<<endl;
+        }
+    }else{
+        cout<<"No se encontraron carreras relacionadas a la escuela. "<<endl;
     }
-    vector<Career> careers = listBySchool(db, school->getID());
-    for (const auto& career : careers) {
-        cout << career.getID() << ". " << career.getName() << endl;
+};
+bool Career::addCareer(sqlite3* db){
+    sqlite3_stmt* stmt;
+    string query="INSERT INTO Careers(CareerName, SchoolID) VALUES(?,?);";
+    if(sqlite3_prepare_v2(db, query.c_str(), -1,&stmt, nullptr)!=SQLITE_OK){
+        cerr<<"Error preparando la consulta: "<<sqlite3_errmsg(db)<<"\n";
+        return false;
     }
-}
+    sqlite3_bind_text(stmt,1, getName().c_str(),-1,SQLITE_TRANSIENT);
+    sqlite3_bind_int(stmt,2, getSchoolID());
+    if(sqlite3_step(stmt)!=SQLITE_DONE){
+        cerr<<"Error insertando el recurso"<<sqlite3_errmsg(db)<<"\n";
+        return false;
+    }
+    sqlite3_finalize(stmt);
+    return true;
+};
+bool Career::deleteCareer(sqlite3* db){
+    sqlite3_stmt* stmt;
+    string query= "DELETE FROM Careers WHERE CareerID=?;";
+    if(sqlite3_prepare_v2(db,query.c_str(),-1,&stmt, nullptr)!=SQLITE_OK){
+        cerr<<"No se ejecuto la consulta"<<sqlite3_errmsg(db)<<"\n";
+        return false;
+    }
+    if(sqlite3_bind_int(stmt,1,getID())){
+        cerr<<"No se pudo enlazar el ID: "<<sqlite3_errmsg(db)<<"\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+    if(sqlite3_step(stmt)!=SQLITE_DONE){
+        cerr<<"No se pudo eliminar la carrera"<<sqlite3_errmsg(db)<<"\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+    sqlite3_finalize(stmt);
+    return true;
+};

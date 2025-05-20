@@ -22,6 +22,7 @@ set(SOURCES
     mainEntities/school.cpp
     mainEntities/subject.cpp
     systemFunctions/ResourceSystem.cpp
+    main_menu/main.cpp
 )
 
 # Crear el ejecutable

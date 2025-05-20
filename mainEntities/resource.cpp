@@ -167,8 +167,12 @@ vector<Resource> Resource::fromSchool(sqlite3* db,int schoolID){            //fi
 };
 
 void Resource::PrintResources(vector<Resource>& resources) {                //imprime los recursos filtrados previamente
-    for (const auto& resource : resources) {
+    if(!resources.empty()){
+        for (const auto& resource : resources) {
         cout << resource.getID() << ". " << resource.getName() << endl;
+        }
+    }else{
+        cout<<"No se encontraron recursos relacionados."<<endl;
     }
 };
 bool Resource::UploadResource(sqlite3* db) {                                //sube recursos a la base de datos
@@ -202,7 +206,7 @@ bool Resource::downloadResource(sqlite3* db, const string& outputPath){     //de
     sqlite3_stmt* stmt;
     string query="SELECT ResourceName, FileData FROM Resources WHERE ResourceID=?";
     if(sqlite3_prepare_v2(db, query.c_str(),-1,&stmt, nullptr)!=SQLITE_OK){
-        std::cerr<<"No se hizo bien la fking consulta";
+        std::cerr<<"No se ejecuto consulta"<<sqlite3_errmsg(db)<<endl;
         return false;
     };
     sqlite3_bind_int(stmt,1,getID());
@@ -231,5 +235,26 @@ bool Resource::downloadResource(sqlite3* db, const string& outputPath){     //de
         sqlite3_finalize(stmt);
         return false;
     };
+};
+
+bool Resource::deleteResource(sqlite3* db){
+    sqlite3_stmt* stmt;
+    string query= "DELETE FROM Resources WHERE ResourceID=?;";
+    if(sqlite3_prepare_v2(db,query.c_str(),-1,&stmt, nullptr)!=SQLITE_OK){
+        cerr<<"No se ejecuto la consulta"<<sqlite3_errmsg(db)<<"\n";
+        return false;
+    }
+    if(sqlite3_bind_int(stmt,1,getID())){
+        cerr<<"No se pudo enlazar el ID: "<<sqlite3_errmsg(db)<<"\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+    if(sqlite3_step(stmt)!=SQLITE_DONE){
+        cerr<<"No se pudo eliminar el recurso"<<sqlite3_errmsg(db)<<"\n";
+        sqlite3_finalize(stmt);
+        return false;
+    }
+    sqlite3_finalize(stmt);
+    return true;
 };
     

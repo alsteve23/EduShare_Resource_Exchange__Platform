@@ -29,14 +29,14 @@ vector<unsigned char> readBinaryFile(const string& filePath){
     return buffer;
 };
 
-int main() {
-    //opnening database
-    const char* path = "../Database/database.db";
-    sqlite3* db;
-    if (sqlite3_open(path, &db) != SQLITE_OK) {
-    cout << "No se pudo abrir la base de datos: " << sqlite3_errmsg(db) << endl;
-    return 1;
-    }
+//int main() {
+    // //opnening database
+    // const char* path = "../Database/database.db";
+    // sqlite3* db;
+    // if (sqlite3_open(path, &db) != SQLITE_OK) {
+    // cout << "No se pudo abrir la base de datos: " << sqlite3_errmsg(db) << endl;
+    // return 1;
+    // }
     //subir un recurso
     // string name= "Computer_Report STFQ.pdf";
     // string filePath= "C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\arqui. de computadores\\Computer_Report STFQ.pdf";
@@ -48,8 +48,8 @@ int main() {
     
     //mostrar archivos filtrados
     
-    vector<Resource> resources=Resource::fromSchool(db,1);
-    Resource::PrintResources(resources);
+    // vector<Resource> resources=Resource::fromSchool(db,1);
+    // Resource::PrintResources(resources);
    
    
    
@@ -65,6 +65,6 @@ int main() {
     //     cout<<"recurso no encontrado"<<endl;
     // };
     
-    sqlite3_close(db);
-    return 0;
-}
+    //sqlite3_close(db);
+//     return 0;
+// }

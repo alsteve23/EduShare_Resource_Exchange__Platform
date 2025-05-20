@@ -38,4 +38,6 @@ class Resource{
     static void PrintResources(vector<Resource>& resources);
     bool UploadResource(sqlite3* db);
     bool downloadResource(sqlite3* db, const string& outputPath);
+    //DELETE method
+    bool deleteResource(sqlite3* db);
 };
