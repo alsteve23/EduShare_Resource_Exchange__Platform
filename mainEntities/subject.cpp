@@ -15,6 +15,10 @@ Subject::Subject(){
     };
 Subject::Subject(int id, string name)
         : subjectID(id), name(name), careerID(0), schoolID(0){};
+Subject::Subject(string name, int cID, int sID):
+        subjectID(0),name(name),careerID(cID), schoolID(sID){};
+Subject::Subject(int ID):
+        subjectID(ID),name(""),careerID(0), schoolID(0){};
 int Subject::getID() const {    
         return subjectID;
     };

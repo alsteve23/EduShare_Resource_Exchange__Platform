@@ -19,6 +19,7 @@ class Resource{
     Resource(std::string n,int f, int c,int s, std::vector<unsigned char> fileData);
     Resource();
     Resource(int id, string name);
+    Resource(int id);
     //getters
     int getID() const;
     std::string getName() const;

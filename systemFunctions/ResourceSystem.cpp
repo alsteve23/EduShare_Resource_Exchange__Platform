@@ -28,43 +28,18 @@ vector<unsigned char> readBinaryFile(const string& filePath){
     }
     return buffer;
 };
+void terminalClear() {
+    std::cout << "\033[2J\033[1;1H"; // Limpia la pantalla y mueve el cursor al inicio
+};
+void titulo(){
+    terminalClear();
+    int terminalWidth1 = 75;
+    int option;
+    string title= "Resource Exchange Platform";
+    cout<<setw(terminalWidth1-(title.length()/2))<<title<<endl;
+    int terminalWidth2 = 119;
+    char fillChar = '_';
+    cout<<setfill(fillChar)<<setw(terminalWidth2)<<"_"<<endl;
+    cout << std::resetiosflags(std::ios::adjustfield) << std::setfill(' ');
+}
 
-//int main() {
-    // //opnening database
-    // const char* path = "../Database/database.db";
-    // sqlite3* db;
-    // if (sqlite3_open(path, &db) != SQLITE_OK) {
-    // cout << "No se pudo abrir la base de datos: " << sqlite3_errmsg(db) << endl;
-    // return 1;
-    // }
-    //subir un recurso
-    // string name= "Computer_Report STFQ.pdf";
-    // string filePath= "C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\arqui. de computadores\\Computer_Report STFQ.pdf";
-    // vector<unsigned char> file= readBinaryFile(filePath);
-    // Resource resource(name,5, 8,1, file);
-    // bool flag=resource.UploadResource(db);
-    // cout<<flag<<endl;
-    
-    
-    //mostrar archivos filtrados
-    
-    // vector<Resource> resources=Resource::fromSchool(db,1);
-    // Resource::PrintResources(resources);
-   
-   
-   
-    //descargar el archivo
-
-    // string destinyPath= "C:\\Users\\Usuario\\OneDrive\\Escritorio\\xd";
-    // auto resource1= Resource::fromID(db,1);
-    // if(resource1.has_value()){
-    //     Resource resource2= resource1.value();
-    //     resource2.downloadResource(db,destinyPath);
-    //     cout<<"recurso encontrado"<<endl;
-    // }else{
-    //     cout<<"recurso no encontrado"<<endl;
-    // };
-    
-    //sqlite3_close(db);
-//     return 0;
-// }

@@ -17,6 +17,8 @@ class Subject{
     Subject(int id,string name,int careerID, int schoolID);
     Subject();
     Subject(int id, string name);
+    Subject(string name, int cID, int sID);
+    Subject(int ID);
     //getters
     int getID() const;
     std::string getName() const;

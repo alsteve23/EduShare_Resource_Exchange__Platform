@@ -25,6 +25,8 @@ Resource::Resource(){
     };
 Resource::Resource(int id, string name)
         : resourceID(id), name(name), schoolID(0), careerID(0), subjectID(0){};
+Resource::Resource(int id)
+        : resourceID(id),name(""),schoolID(0),careerID(0),subjectID(0){};
 //getters
         int Resource::getID() const {    
         return resourceID;
