@@ -18,9 +18,6 @@ A terminal-based academic file manager developed in C++ that allows students to 
 - 🏫 **Academic Structure Navigation**  
   Navigate through schools, careers, and subjects.
 
-- 👤 **User Management**  
-  Users can register and be linked to the resources they upload.
-
 - 🗑️ **Delete Records**  
   Safely remove obsolete or incorrect entries (schools, careers, subjects, or resources).
 
