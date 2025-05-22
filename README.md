@@ -32,29 +32,6 @@ A terminal-based academic file manager developed in C++ that allows students to 
 
 ---
 
-## 📁 Project Structure
-
-My_First_Big_Project/
-│
-├── build/ # Compiled files
-├── DataBase/ # SQLite database
-├── libraries/ # SQLite C source files
-│ ├── sqlite3.c
-│ └── sqlite3.h
-├── mainEntities/ # Core entity classes
-│ ├── career.{h,cpp}
-│ ├── resource.{h,cpp}
-│ ├── school.{h,cpp}
-│ ├── subject.{h,cpp}
-│ ├── user.{h,cpp}
-│ └── Entities.h
-├── main_menu/ # Menus and prompts
-├── systemFunctions/ # Logic and operations
-│ ├── ResourceSystem.{h,cpp}
-├── CMakeLists.txt # CMake build file
-└── README.md # Project description
----
-
 ## 📦 Build Instructions
 
 1. **Clone the repository:**
