@@ -14,7 +14,7 @@ void fourthMenu(sqlite3* db, int schoolID, int careerID, int subjectID){
     while(true){
     int option;
     titulo();
-    cout<<"1. Ver Recursos Existentes"<<endl;
+    cout<<"1. Descargar un Recurso Existentes"<<endl;
     cout<<"2. Adicionar Recursos"<<endl;
     cout<<"3. Eliminar Recursos"<<endl;    
     cout<<"4. Volver"<<endl;
@@ -40,8 +40,8 @@ void fourthMenu(sqlite3* db, int schoolID, int careerID, int subjectID){
             cout<<"Ingrese el path donde quiere que se guarde el recurso: ";
             getline(cin, filepath);
             Resource resource(id3);
-
-                this_thread::sleep_for(chrono::seconds(3));
+            resource.downloadResource(db,filepath);
+            this_thread::sleep_for(chrono::seconds(3));
 
         }
     }
@@ -94,6 +94,8 @@ void fourthMenu(sqlite3* db, int schoolID, int careerID, int subjectID){
         terminalClear();
         cout<<"Opcion incorrecta"<<endl;
         this_thread::sleep_for(chrono::seconds(1));
+        cin.clear(); // Limpia el estado de error de cin
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         break;
     }
 }}
@@ -170,6 +172,8 @@ void thirdMenu(sqlite3*db, int careerID,int schoolID){
         terminalClear();
         cout<<"Opcion incorrecta"<<endl;
         this_thread::sleep_for(chrono::seconds(1));
+        cin.clear(); // Limpia el estado de error de cin
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         break;
     }
 }  
@@ -211,7 +215,6 @@ void secondaryMenu(sqlite3* db, int schoolID){
             string name;
             cout<<"Ingresa el nombre de la  nueva carrera o ingresa [-1] para regresar: ";
             getline(cin, name);
-            cin.ignore();
             if (name=="-1"){
                 terminalClear();
                 cout<<"Volviendo..."<<endl;
@@ -249,6 +252,8 @@ void secondaryMenu(sqlite3* db, int schoolID){
         terminalClear();
         cout<<"Opcion incorrecta"<<endl;
         this_thread::sleep_for(chrono::seconds(1));
+        cin.clear(); // Limpia el estado de error de cin
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         break;
     }
 }}
@@ -292,7 +297,6 @@ void showMainMenu(sqlite3* db){
                 titulo();
                 cout<<"Ingresa el nombre de la  nueva Escuela o ingresa[-1] para volver: ";
                 getline(cin, name);
-                cin.ignore();
                 if(name=="-1"){
                     terminalClear();
                     cout<<"Volviendo..."<<endl;
@@ -344,6 +348,8 @@ void showMainMenu(sqlite3* db){
             terminalClear();
             cout<<"Opcion incorrecta"<<endl;
             this_thread::sleep_for(chrono::seconds(1));
+            cin.clear(); // Limpia el estado de error de cin
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;
             
         }

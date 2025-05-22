@@ -1,0 +1,44 @@
+[
+{
+  "directory": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/My_First_Big_Project.dir/includes_C.rsp -g -o CMakeFiles\\My_First_Big_Project.dir\\libraries\\sqlite3.c.obj -c \"C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\Advance programming\\My_first_big_project\\libraries\\sqlite3.c\"",
+  "file": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/libraries/sqlite3.c",
+  "output": "CMakeFiles/My_First_Big_Project.dir/libraries/sqlite3.c.obj"
+},
+{
+  "directory": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/My_First_Big_Project.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\My_First_Big_Project.dir\\mainEntities\\career.cpp.obj -c \"C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\Advance programming\\My_first_big_project\\mainEntities\\career.cpp\"",
+  "file": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/mainEntities/career.cpp",
+  "output": "CMakeFiles/My_First_Big_Project.dir/mainEntities/career.cpp.obj"
+},
+{
+  "directory": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/My_First_Big_Project.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\My_First_Big_Project.dir\\mainEntities\\resource.cpp.obj -c \"C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\Advance programming\\My_first_big_project\\mainEntities\\resource.cpp\"",
+  "file": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/mainEntities/resource.cpp",
+  "output": "CMakeFiles/My_First_Big_Project.dir/mainEntities/resource.cpp.obj"
+},
+{
+  "directory": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/My_First_Big_Project.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\My_First_Big_Project.dir\\mainEntities\\school.cpp.obj -c \"C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\Advance programming\\My_first_big_project\\mainEntities\\school.cpp\"",
+  "file": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/mainEntities/school.cpp",
+  "output": "CMakeFiles/My_First_Big_Project.dir/mainEntities/school.cpp.obj"
+},
+{
+  "directory": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/My_First_Big_Project.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\My_First_Big_Project.dir\\mainEntities\\subject.cpp.obj -c \"C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\Advance programming\\My_first_big_project\\mainEntities\\subject.cpp\"",
+  "file": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/mainEntities/subject.cpp",
+  "output": "CMakeFiles/My_First_Big_Project.dir/mainEntities/subject.cpp.obj"
+},
+{
+  "directory": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/My_First_Big_Project.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\My_First_Big_Project.dir\\systemFunctions\\ResourceSystem.cpp.obj -c \"C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\Advance programming\\My_first_big_project\\systemFunctions\\ResourceSystem.cpp\"",
+  "file": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/systemFunctions/ResourceSystem.cpp",
+  "output": "CMakeFiles/My_First_Big_Project.dir/systemFunctions/ResourceSystem.cpp.obj"
+},
+{
+  "directory": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/My_First_Big_Project.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\My_First_Big_Project.dir\\main_menu\\main.cpp.obj -c \"C:\\Users\\Usuario\\OneDrive\\Documentos\\Cursos_Steve_Tene\\5. Quinto_semestre\\Advance programming\\My_first_big_project\\main_menu\\main.cpp\"",
+  "file": "C:/Users/Usuario/OneDrive/Documentos/Cursos_Steve_Tene/5. Quinto_semestre/Advance programming/My_first_big_project/main_menu/main.cpp",
+  "output": "CMakeFiles/My_First_Big_Project.dir/main_menu/main.cpp.obj"
+}
+]
